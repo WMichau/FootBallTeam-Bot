@@ -63,18 +63,18 @@ def getMatch():
     match = browser.find_element_by_xpath('/html/body/div[1]/div[1]/main/div/div/div/div[5]/div[2]/div[1]/div/div[1]/div/div[2]').get_attribute("textContent")
     match = match.strip()
     match = match[12:]
-    match = "18:21"
+    match = "18:28"
     #match = f'"{match}"'
     schedule.every().day.at(match).do(matchNotification)
 
 def matchNotification():
     webhook.send("@everyone Mecz ligowy")
 
-schedule.every().day.at("18:18").do(login)
-schedule.every().day.at("18:19").do(getTask)
-schedule.every().day.at("18:20").do(getMatch)
-schedule.every().day.at("18:22").do(clubTraining)
-schedule.every().day.at("18:23").do(logout)
+schedule.every().day.at("18:25").do(login)
+schedule.every().day.at("18:26").do(getTask)
+schedule.every().day.at("18:27").do(getMatch)
+schedule.every().day.at("18:29").do(clubTraining)
+schedule.every().day.at("18:30").do(logout)
 
 @client.event
 async def on_ready():
