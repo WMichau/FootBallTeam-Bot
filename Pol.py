@@ -30,7 +30,7 @@ client = discord.Client()
 
 browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-webhook = Webhook.partial(823975361905164368, 'MnSDkytXiRqn7d-LSJdNw855VmJCsh3InLnZcHZ-in3dC-uoCDgogZh9ht5tZXtMF8gs', adapter=RequestsWebhookAdapter())
+webhook = Webhook.partial(823976320031129652, '0lm7Cvs-AebhinVqtzJTJtlEEKhC19LKSp8nug3LZqEOMKYG-A7e_mXjnntSbUkifQkG', adapter=RequestsWebhookAdapter())
 
 def login():
     browser.get('https://footballteam.pl')
@@ -69,7 +69,7 @@ def getMatch():
 def matchNotification():
     webhook.send("@everyone Mecz ligowy!")
 
-schedule.every().day.at("8:00").do(login)
+schedule.every().day.at("19:00").do(login)
 schedule.every().day.at("9:00").do(getTask)
 schedule.every().day.at("14:55").do(getMatch)
 schedule.every().day.at("20:00").do(clubTraining)
