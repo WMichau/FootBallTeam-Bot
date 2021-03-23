@@ -28,7 +28,7 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 client = discord.Client()
 
-browser = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+browser = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
 
 webhook = Webhook.partial(822464268565872722, 'WFSqF6N56gouE6b0MQ_mxUbvikroNVm7a-zvt6hc6ZXyHo8fuPBHWTPHo9ApBLrL_91B', adapter=RequestsWebhookAdapter())
 
