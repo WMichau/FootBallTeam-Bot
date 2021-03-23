@@ -14,11 +14,21 @@ import schedule
 from discord import Webhook, RequestsWebhookAdapter
 import re
 
+GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+
+chrome_options = webdriver.ChromeOptions()
+
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+
+chrome_options.binary_location = GOOGLE_CHROME_PATH
+
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 client = discord.Client()
 
-browser = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
+browser = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
 
 webhook = Webhook.partial(822464268565872722, 'WFSqF6N56gouE6b0MQ_mxUbvikroNVm7a-zvt6hc6ZXyHo8fuPBHWTPHo9ApBLrL_91B', adapter=RequestsWebhookAdapter())
 
