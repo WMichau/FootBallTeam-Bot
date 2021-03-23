@@ -70,7 +70,7 @@ def matchNotification():
     webhook.send("@everyone Mecz ligowy!")
 
 schedule.every().day.at("19:00").do(login)
-schedule.every().day.at("9:00").do(getTask)
+schedule.every().day.at("09:00").do(getTask)
 schedule.every().day.at("14:55").do(getMatch)
 schedule.every().day.at("20:00").do(clubTraining)
 schedule.every().day.at("22:00").do(logout)
