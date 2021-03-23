@@ -59,11 +59,11 @@ def getMatch():
 def matchNotification():
     webhook.send("Mecz ligowy")
 
-schedule.every().day.at("16:36").do(login)
-schedule.every().day.at("12:23").do(getTask)
-schedule.every().day.at("16:37").do(getMatch)
-schedule.every().day.at("12:34").do(clubTraining)
-schedule.every().day.at("12:35").do(logout)
+schedule.every().day.at("17:20").do(login)
+schedule.every().day.at("17:22").do(getTask)
+schedule.every().day.at("17:24").do(getMatch)
+schedule.every().day.at("17:26").do(clubTraining)
+schedule.every().day.at("17:28").do(logout)
 
 @client.event
 async def on_ready():
