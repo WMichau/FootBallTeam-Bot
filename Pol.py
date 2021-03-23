@@ -30,7 +30,7 @@ client = discord.Client()
 
 browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-webhook = Webhook.partial(822464268565872722, 'WFSqF6N56gouE6b0MQ_mxUbvikroNVm7a-zvt6hc6ZXyHo8fuPBHWTPHo9ApBLrL_91B', adapter=RequestsWebhookAdapter())
+webhook = Webhook.partial(823975361905164368, 'MnSDkytXiRqn7d-LSJdNw855VmJCsh3InLnZcHZ-in3dC-uoCDgogZh9ht5tZXtMF8gs', adapter=RequestsWebhookAdapter())
 
 def login():
     browser.get('https://footballteam.pl')
@@ -52,10 +52,10 @@ def getTask():
     browser.refresh()
     task = WebDriverWait(browser, 5).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div[1]/main/div/div/div/div[3]/div[2]/div[1]/div/div[2]/p")))
     task_formated = task.get_attribute("textContent")
-    webhook.send("Zadanie na " + date.today().strftime("%d/%m/%Y") + " : " + task_formated.strip())
+    webhook.send("@Mesie Muszi Zadanie na " + date.today().strftime("%d/%m/%Y") + " : " + task_formated.strip())
 
 def clubTraining():
-    webhook.send("@everyone Trening klubowy!")
+    webhook.send("@everyone Trening klubowy! (☞ﾟヮﾟ)☞")
     
 def getMatch():
     browser.get('https://pl.footballteamgame.com/dashboard')
@@ -63,18 +63,17 @@ def getMatch():
     match = browser.find_element_by_xpath('/html/body/div[1]/div[1]/main/div/div/div/div[5]/div[2]/div[1]/div/div[1]/div/div[2]').get_attribute("textContent")
     match = match.strip()
     match = match[12:]
-    match = "18:28"
-    #match = f'"{match}"'
+    match = f'"{match}"'
     schedule.every().day.at(match).do(matchNotification)
 
 def matchNotification():
-    webhook.send("@everyone Mecz ligowy")
+    webhook.send("@everyone Mecz ligowy!")
 
-schedule.every().day.at("18:25").do(login)
-schedule.every().day.at("18:26").do(getTask)
-schedule.every().day.at("18:27").do(getMatch)
-schedule.every().day.at("18:29").do(clubTraining)
-schedule.every().day.at("18:30").do(logout)
+schedule.every().day.at("8:00").do(login)
+schedule.every().day.at("9:00").do(getTask)
+schedule.every().day.at("14:55").do(getMatch)
+schedule.every().day.at("20:00").do(clubTraining)
+schedule.every().day.at("22:00").do(logout)
 
 @client.event
 async def on_ready():
