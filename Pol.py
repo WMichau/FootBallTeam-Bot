@@ -64,16 +64,14 @@ def getMatch():
     match = match.strip()
     match = match[12:]
     #match = f'"{match}"' 
-    print(match)
-    print("21:30")
     schedule.every().day.at(match).do(matchNotification)
 
 def matchNotification():
-    webhook.send("@everyone Mecz ligowy!")
+    webhook.send("TeXDsty na prodXDukcji Mecz sparingowy! XD")
 
-schedule.every().day.at("18:40").do(login)
+schedule.every().day.at("19:00").do(login)
 schedule.every().day.at("09:30").do(getTask)
-schedule.every().day.at("18:41").do(getMatch)
+schedule.every().day.at("19:10").do(getMatch)
 schedule.every().day.at("20:00").do(clubTraining)
 schedule.every().day.at("22:00").do(logout)
 
