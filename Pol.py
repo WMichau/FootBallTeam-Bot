@@ -52,7 +52,7 @@ def getTask():
     browser.refresh()
     task = WebDriverWait(browser, 5).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div[1]/main/div/div/div/div[3]/div[2]/div[1]/div/div[2]/p")))
     task_formated = task.get_attribute("textContent")
-    webhook.send("@Mesie Muszi Zadanie na " + date.today().strftime("%d/%m/%Y") + " : " + task_formated.strip())
+    webhook.send("@everyone Zadanie na " + date.today().strftime("%d/%m/%Y") + " : " + task_formated.strip())
 
 def clubTraining():
     webhook.send("@everyone Trening klubowy! (☞ﾟヮﾟ)☞")
@@ -67,11 +67,11 @@ def getMatch():
     schedule.every().day.at(match).do(matchNotification)
 
 def matchNotification():
-    webhook.send("TeXDsty na prodXDukcji Mecz sparingowy! XD")
+    webhook.send("@everyone Mecz ligowy!")
 
-schedule.every().day.at("19:00").do(login)
-schedule.every().day.at("09:30").do(getTask)
-schedule.every().day.at("19:10").do(getMatch)
+schedule.every().day.at("07:40").do(login)
+schedule.every().day.at("08:00").do(getTask)
+schedule.every().day.at("14:50").do(getMatch)
 schedule.every().day.at("20:00").do(clubTraining)
 schedule.every().day.at("22:00").do(logout)
 
