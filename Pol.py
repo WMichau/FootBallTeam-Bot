@@ -38,8 +38,8 @@ def login():
     browser.find_element_by_xpath('//*[@id="modal-login"]/div/div/div[1]/div[1]').click()
     username = browser.find_element_by_xpath('//*[@id="modal-login"]/div/div/div[2]/div/form/div[1]/input')
     password = browser.find_element_by_xpath('//*[@id="modal-login"]/div/div/div[2]/div/form/div[2]/input')
-    username.send_keys('granat29@vp.pl')
-    password.send_keys('qwerty123')
+    username.send_keys('')
+    password.send_keys('')
     browser.find_element_by_xpath('//*[@id="btn-login"]').click()
 
 def logout():
